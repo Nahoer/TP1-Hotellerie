@@ -5,39 +5,37 @@ using namespace std;
 
 class Date {
 public:
-	Date();
-	Date(int jour, int mois, int annee);
-
-	int getJour() const;
-	void setJour(int jour);
-
-	int getMois() const;
-	void setMois(int mois);
-
-	int getAnnee() const;
-	void setAnnnee(int annee);
-
-	void setDate(int jour, int mois, int annee);
-
-	int GetNbrJourParMois() const;
-
-	bool isBisextile() const;
+	Date(int year, int month, int day);
+	Date() = default;
+	~Date();
+	int year() const;
+	int month() const;
+	int day() const;
+	bool checkDate(int year, int month, int day);
+	void setYear(int year);
+	void setMonth(int month);
+	void setDay(int day);
+	void nextDay();
+	std::string toString() const;
 
 	int ecartJour(Date d) const;
 
-	bool isOlderThan(Date d) const;
 
 	string toStringShortFormat();
 
 	string toStringFullFormat();
 
-	void jourSuivant();
-	void moisSuivant();
-	void anneeSuivante();
 
 
 private :
-	int _jour;
-	int _mois;
-	int _annee;
+	int _year;
+	int _month;
+	int _day;
 };
+
+bool operator == (const Date& d1, const Date& d2); // comparison operators
+bool operator != (const Date& d1, const Date& d2);
+bool operator < (const Date& d1, const Date& d2);
+bool operator > (const Date& d1, const Date& d2);
+bool operator <= (const Date& d1, const Date& d2);
+bool operator >= (const Date& d1, const Date& d2);

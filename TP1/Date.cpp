@@ -1,157 +1,133 @@
-#include "Date.h";
+#include "Date.h"
 #include <iostream>
+#include <cassert>
 
-using namespace std;
 
-
-Date::Date()
-{
-	this->setDate(0, 0, 0);
-}
-Date::Date(int jour, int mois, int annee)
-{
-	this->setDate(jour, mois, annee);
-}
-int Date::getJour() const
-{
-	return this->_jour;
-}
-void Date::setJour(int jour)
-{
-	this->_jour = jour;
-	if (this->getJour() >= this->GetNbrJourParMois()+1) 
-	{
-		this->_jour = 1;
+bool Date::checkDate(int day, int month, int year) {
+	if (year < 0) {
+		return false;
 	}
-}
-
-int Date::getMois() const
-{
-	return this->_mois;
-}
-
-void Date::setMois(int mois)
-{
-	this->_mois = mois;
-	if (this->getMois() >= 13)
-	{
-		this->_mois = 1;
+	if ((month < 1) || (month > 12)) {
+		return false;
 	}
-}
-
-int Date::GetNbrJourParMois() const
-{
-	int nbr;
-	if (this->getMois() == 2) 
-	{
-		if (this->isBisextile())
-		{
-			nbr = 28;
+	if ((day < 1) || (day > 31)) {
+		return false;
+	}
+	if ((month == 1 || month == 3 || month == 5 || month == 7
+		|| month == 8 || month == 10 || month == 12) && (day > 31)) {
+		return false;
+	}
+	if ((month == 4 || month == 6 || month == 9 || month == 11)
+		&& (day > 30)) {
+		return false;
+	}
+	if ((month == 2) && (day > 29)) {
+		return false;
+	}
+	if ((month == 2) && (day == 29)) {
+		if ((year % 4) || ((year % 100 == 0) && (year % 400))) {
+			return false;
 		}
-		else 
-		{
-			nbr = 29;
+	}
+	return true;
+}
+
+
+
+Date::Date(int day, int month, int year) {
+	bool status = checkDate(day, month, year);
+	assert(status == true && "Date is not valid");
+	_year = year;
+	_month = month;
+	_day = day;
+	//std::cout << "Constructor: " << _year << "/" << _month << "/" << _day << '\n';
+}
+
+Date::~Date() {
+	//std::cout << "  Destructor: " << _year << "/" << _month << "/" << _day << '\n';
+}
+
+int Date::year() const {
+	return _year;
+}
+int Date::month() const {
+	return _month;
+}
+
+int Date::day() const {
+	return _day;
+}
+
+std::string Date::toString() const {
+	std::string month[12] = { "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec" };
+	std::string to_display;
+	to_display = std::to_string(_year) + "/" + month[_month - 1] + "/" + std::to_string(_day);
+	return to_display;
+}
+
+void Date::setYear(int year) {
+	assert(year >= 0 && "Year must be positive");
+	_year = year;
+}
+
+void Date::setMonth(int month) {
+	assert((month >= 1) && (month <= 12) && "Month must be between 1 and 121");
+	_month = month;
+}
+
+void Date::setDay(int day) {
+	bool status = checkDate(_year, _month, day);
+	assert(status == true && "Day is not valid");
+	_day = day;
+}
+
+void Date::nextDay() {
+	bool status = checkDate(_day + 1, _month, _year);
+	if (!status) {
+		status = checkDate(1, _month + 1, _year);
+		if (!status) {
+			_year++;
+			_month = 1;
+			_day = 1;
 		}
-		
+		else {
+			_month++;
+			_day = 1;
+		}
 	}
-	else if (this->getMois()== 4 || this->getMois() == 6 || this->getMois() == 9 || this->getMois() == 11)
-	{
-		nbr = 30;
+	else {
+		_day += 1;
 	}
-	else
-	{
-		nbr = 31;
-	}
-
-	return nbr;
-}
-
-bool Date::isBisextile() const
-{
-	bool isBisextile = false;
-	if (this->getAnnee() % 4 == 0)
-	{
-		isBisextile = true;
-	}
-
-	return isBisextile;
-}
-
-int Date::getAnnee() const
-{
-	return this->_annee;
-}
-void Date::setAnnnee(int annee)
-{
-	this->_annee = annee;
-}
-
-void Date::setDate(int jour, int mois, int annee)
-{
-	this->setJour(jour);
-	this->setMois(mois);
-	this->setAnnnee(annee);
 }
 
 int Date::ecartJour(Date d) const
 {
 	int ecart = 0;
-	if (this->isOlderThan(d)) 
+	if (*this>d) 
 	{
-		Date d2 = Date(this->getJour(), this->getMois(), this->getAnnee());
-		ecart = d.ecartJour(d2);
+		ecart = d.ecartJour(*this);
 	}
 	else 
 	{
-		Date d3 = Date(this->getJour(), this->getMois(), this->getAnnee());
-		while (d.isOlderThan(d3))
+		Date d2 = Date(*this);
+		while (d!=d2)
 		{
-			d3.jourSuivant();
+			d2.nextDay();
+			cout << d2.toString() << endl;
 			ecart++;
 		}
 	}
-
 	return ecart;
 }
 
-bool Date::isOlderThan(Date d) const
-{
-	bool isOlder = false;
-	if (this->getAnnee() > d.getAnnee())
-	{
-		isOlder = true;
-	}
-	else 
-	{
-		if (this->getAnnee() == d.getAnnee())
-		{
-			if (this->getMois() > d.getMois()) 
-			{
 
-				isOlder = true;
-			}
-			else
-			{
-				if (this->getMois() == d.getMois())
-				{
-					if (this->getJour() > d.getJour()) {
-						isOlder = true;
-					}
-				}
-			}
-		}
-	}
-
-	return isOlder;
-
-}
 
 string Date::toStringShortFormat()
 {
 	string date = "";	
-	date += to_string(this->getJour()) + "/";
-	date += to_string(this->getMois()) + "/";
-	date += to_string(this->getAnnee());
+	date += to_string(this->day()) + "/";
+	date += to_string(this->month()) + "/";
+	date += to_string(this->year());
 	return date;
 }
 
@@ -160,39 +136,64 @@ string Date::toStringFullFormat()
 	return "";
 }
 
-void Date::jourSuivant()
-{
-	
-	if (this->getJour() >= this->GetNbrJourParMois()) 
-	{
-		this->setJour(this->getJour() + 1);
-		this->moisSuivant();
+bool operator == (const Date& d1, const Date& d2) { // check for equality
+	if ((d1.day() == d2.day()) && (d1.month() == d2.month()) && (d1.year() == d2.year())) {
+		return true;
 	}
-	else
-	{
-		this->setJour(this->getJour() + 1);
-	}
-
-	
+	return false;
 }
 
-void Date::moisSuivant()
-{
-	
-	if (this->getMois() >= 12) 
-	{
-		this->setMois(this->getMois() + 1);
-		this->anneeSuivante();
-	}
-	else
-	{
-		this->setMois(this->getMois() + 1);
-	}
-
-	
+bool operator !=(const Date& d1, const Date& d2) {
+	return !(d1 == d2);
 }
 
-void Date::anneeSuivante()
-{
-	this->setAnnnee(this->getAnnee() + 1);
+bool operator < (const Date& d1, const Date& d2) {
+	if (d1.year() < d2.year()) {
+		return true;
+	}
+	else if (d1.year() > d2.year()) {
+		return false;
+	}
+	else { // same year
+		if (d1.month() < d2.month()) {
+			return true;
+		}
+		else if (d1.month() > d2.month()) {
+			return false;
+		}
+		else { // same month
+			if (d1.day() < d2.day()) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	return false;
+}
+
+
+bool operator > (const Date& d1, const Date& d2) {
+	if (d1 == d2) {
+		return false;
+	}
+	if (d1 < d2) {
+		return false;
+	}
+	return true;
+}
+
+bool operator <=(const Date& d1, const Date& d2) {
+	if (d1 == d2) {
+		return true;
+	}
+	return (d1 < d2);
+}
+
+bool operator >=(const Date& d1, const Date& d2) {
+	if (d1 == d2) {
+		return true;
+	}
+	return (d1 > d2);
 }

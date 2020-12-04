@@ -33,7 +33,7 @@ namespace hotelerie {
 	}
 	void Reservation::setDateFin(Date d)
 	{
-		if (d.isOlderThan(this->getDateDebut())) {
+		if (d>this->getDateDebut()) {
 			this->_dateFin = d;
 		}
 
