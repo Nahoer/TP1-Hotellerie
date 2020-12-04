@@ -41,7 +41,6 @@ namespace hotelerie {
 		Hotel _hotel;
 		Chambre _chambre;
 		Client _client;
-		int _montant;
 
 	};
 
