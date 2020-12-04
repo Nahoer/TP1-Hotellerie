@@ -113,7 +113,6 @@ int Date::ecartJour(Date d) const
 		while (d!=d2)
 		{
 			d2.nextDay();
-			cout << d2.toString() << endl;
 			ecart++;
 		}
 	}
