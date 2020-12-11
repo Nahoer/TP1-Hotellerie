@@ -16,6 +16,5 @@ class App {
 	private:
 		vector<Client> _clients;
 		vector<Hotel> _hotels;
-		vector<
 
 };
