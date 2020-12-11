@@ -15,12 +15,12 @@ int main()
 	cout << "Test de la classe Client" << endl;
 	Client c1 = Client(1, "Prunot", "Clement");
 	Client c2 = Client(1, "Math", "Hugo");
-	cout << c1.toString() << endl;
-	cout << c2.toString() << endl;
+	cout << c1 << endl;
+	cout << c2 << endl;
 	c1.setNom("Dupont");
 	c1.setPrenom("Bernard");
-	cout << c1.toString() << endl;
-	cout << c2.toString() << endl;
+	cout << c1 << endl;
+	cout << c2 << endl;
 	cout << endl;
 	cout << endl;
 	
@@ -29,12 +29,12 @@ int main()
 	cout << "Test de la classe Chambre" << endl;
 	Chambre ch1 = Chambre(1, Single, 90);
 	Chambre ch2 = Chambre(2, Suite, 200);
-	cout << ch1.toString() << endl;
-	cout << ch2.toString() << endl;
+	cout << ch1 << endl;
+	cout << ch2 << endl;
 	ch1.setPrix(1000);
 	ch1.setType(Double);
-	cout << ch1.toString() << endl;
-	cout << ch2.toString() << endl;
+	cout << ch1 << endl;
+	cout << ch2 << endl;
 	cout << endl;
 	cout << endl;
 
@@ -43,13 +43,14 @@ int main()
 	Hotel h1 = Hotel(1, "La Cloche", "Dijon");
 	Hotel h2 = Hotel(1, "Palym", "Paris");
 	h1.addChambre(ch1);
+	h1.addChambre(ch2);
 	h2.addChambre(ch2);
-	cout << h1.toString() << endl;
-	cout << h2.toString() << endl;
+	cout << h1 << endl;
+	cout << h2 << endl;
 	h1.setNom("Ibis");
 	h2.setVille("Bordeaux");
-	cout << h1.toString() << endl;
-	cout << h2.toString() << endl;
+	cout << h1 << endl;
+	cout << h2 << endl;
 	cout << endl;
 	cout << endl;
 

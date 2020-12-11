@@ -60,8 +60,10 @@ namespace hotelerie {
 		this->getReservations()[index] = idR;
 	}
 
-	string operator << (const Client& c)
+	ostream& operator<<(ostream& os, const Client& c)
 	{
-		return c.getNom() + " " + c.getPrenom();
+		os << c.getNom() + " " + c.getPrenom();
+
+		return os;
 	}
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>;
 #include <string>
 
 using namespace std;
@@ -30,7 +31,7 @@ namespace hotelerie {
 
 	};
 
-	string operator << (const Chambre& c);
+	ostream& operator<<(ostream& os, const Chambre& c);
 }
 	
 

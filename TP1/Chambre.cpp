@@ -1,6 +1,6 @@
 
 #include "Chambre.h";
-
+using namespace std;
 
 namespace hotelerie {
 	Chambre::Chambre() : _prix(0), _id(0), _type(Single)
@@ -54,9 +54,11 @@ namespace hotelerie {
 		return type;
 	}
 
-	string operator << (const Chambre& c)
+	ostream& operator<<(ostream& os, const Chambre& c)
 	{
 
-		return "Chambre " + to_string(c.getID()) + "\nPrix: " + to_string(c.getPrix()) + "\nType: " + c.getTypeAsString();
+		os << "Chambre " + to_string(c.getID()) << "\nPrix: " + to_string(c.getPrix()) << "\nType: " + c.getTypeAsString();
+
+		return os;
 	}
 }

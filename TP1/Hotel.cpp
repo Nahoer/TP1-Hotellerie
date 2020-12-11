@@ -91,15 +91,15 @@ namespace hotelerie {
 		this->getChambres()[index] = c;
 	}
 
-	string operator << (Hotel& h)
+	ostream& operator<<(ostream& os, const Hotel& h)
 	{
-		string str = "Hotel " + h.getNom() + " a " + h.getVille();
+		os << "Hotel " + h.getNom() + " a " + h.getVille();
 		for (Chambre c : h.getChambres())
 		{
-			str += "\n" << c;
+			os << "\n" << c;
 		}
 
-		return str;
+		return os;
 	}
 
 }

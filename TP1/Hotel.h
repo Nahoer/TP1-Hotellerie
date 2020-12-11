@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>;
 #include <string>;
 #include <vector>;
 #include "Chambre.h";
@@ -41,5 +41,5 @@ namespace hotelerie {
 
 	};
 
-	string operator << (Hotel& h);
+	ostream& operator<<(ostream& os, const Hotel& h);
 }
