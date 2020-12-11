@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="App.cpp" />
     <ClCompile Include="Chambre.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Date.cpp" />
