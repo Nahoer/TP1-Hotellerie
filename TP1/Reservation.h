@@ -4,7 +4,7 @@
 #include "Chambre.h";
 #include "Hotel.h";
 
-namespace hotelerie {
+namespace hotellerie {
 	class Reservation {
 
 	public:

@@ -2,7 +2,7 @@
 #include "Chambre.h";
 using namespace std;
 
-namespace hotelerie {
+namespace hotellerie {
 	Chambre::Chambre() : _prix(0), _id(0), _type(Single)
 	{
 

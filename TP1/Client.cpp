@@ -1,7 +1,7 @@
 
 #include "Client.h";
 
-namespace hotelerie {
+namespace hotellerie {
 	Client::Client() : _id(0), _nom(""), _prenom(""), _IDReservations(vector<int>())
 	{
 

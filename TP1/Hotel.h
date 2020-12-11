@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-namespace hotelerie {
+namespace hotellerie {
 
 	class Hotel {
 

@@ -2,7 +2,7 @@
 #include "Reservation.h";
 
 
-namespace hotelerie {
+namespace hotellerie {
 	Reservation::Reservation() : _id(0), _dateDebut(Date()), _dateFin(Date()), _hotel(Hotel()), _chambre(Chambre()), _client(Client())
 	{
 

@@ -56,5 +56,8 @@
     <ClInclude Include="Date.h">
       <Filter>Fichiers d%27en-tête\Date</Filter>
     </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

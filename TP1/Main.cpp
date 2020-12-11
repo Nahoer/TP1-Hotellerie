@@ -5,7 +5,7 @@
 #include "hotel.h";
 #include "Client.h";
 #include "Reservation.h";
-using namespace hotelerie;
+using namespace hotellerie;
 using namespace std;
 
 int main()

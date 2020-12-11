@@ -3,7 +3,7 @@
 #include "Hotel.h";
 #include <iostream>
 using namespace std;
-namespace hotelerie {
+namespace hotellerie {
 	Hotel::Hotel() : _id(0), _nom(""), _ville("")
 	{
 		this->_listeChambres = vector<Chambre>();

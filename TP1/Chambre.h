@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace hotelerie {
+namespace hotellerie {
 	enum RoomType { Single, Double, Suite };
 
 	class Chambre {
