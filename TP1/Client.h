@@ -27,7 +27,6 @@ namespace hotelerie {
 		void removeReservation(int index);
 		void replaceReservation(int index, int idR);
 
-		string toString() const;
 
 
 	private:
@@ -37,4 +36,6 @@ namespace hotelerie {
 		vector<int> _IDReservations;
 
 	};
+
+	string operator << (const Client& c);
 }

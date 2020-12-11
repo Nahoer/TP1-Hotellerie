@@ -60,8 +60,8 @@ namespace hotelerie {
 		this->getReservations()[index] = idR;
 	}
 
-	string Client::toString() const
+	string operator << (const Client& c)
 	{
-		return this->getNom() + " " + this->getPrenom();
+		return c.getNom() + " " + c.getPrenom();
 	}
 }

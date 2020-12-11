@@ -21,7 +21,6 @@ namespace hotelerie {
 		void setPrix(int prix);
 
 		string getTypeAsString() const;
-		string toString() const;
 
 	private:
 		int _id;
@@ -30,6 +29,8 @@ namespace hotelerie {
 
 
 	};
+
+	string operator << (const Chambre& c);
 }
 	
 

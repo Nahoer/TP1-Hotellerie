@@ -91,12 +91,12 @@ namespace hotelerie {
 		this->getChambres()[index] = c;
 	}
 
-	string Hotel::toString() const
+	string operator << (Hotel& h)
 	{
-		string str = "Hotel " + this->getNom() + " a " + this->getVille();
-		for (Chambre c : this->getChambres())
+		string str = "Hotel " + h.getNom() + " a " + h.getVille();
+		for (Chambre c : h.getChambres())
 		{
-			str += "\n" + c.toString();
+			str += "\n" << c;
 		}
 
 		return str;

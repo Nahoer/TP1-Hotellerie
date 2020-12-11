@@ -54,9 +54,9 @@ namespace hotelerie {
 		return type;
 	}
 
-	string Chambre::toString() const
+	string operator << (const Chambre& c)
 	{
-		
-		return "Chambre " + to_string(this->getID()) + "\nPrix: " + to_string(this->getPrix()) + "\nType: " + this->getTypeAsString();
+
+		return "Chambre " + to_string(c.getID()) + "\nPrix: " + to_string(c.getPrix()) + "\nType: " + c.getTypeAsString();
 	}
 }

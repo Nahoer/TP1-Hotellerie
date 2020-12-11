@@ -29,7 +29,6 @@ namespace hotelerie {
 		Chambre getChambre(int index) const;
 		void modifyChambre(int index, Chambre c);
 
-		string toString() const;
 			
 
 
@@ -41,4 +40,6 @@ namespace hotelerie {
 
 
 	};
+
+	string operator << (Hotel& h);
 }
