@@ -48,21 +48,21 @@ namespace hotellerie {
 
 	void Client::addReservation(int idR)
 	{
-		this->getReservations().push_back(idR);
+		this->_IDReservations.push_back(idR);
 	}
 	void Client::removeReservation(int index)
 	{
-		this->getReservations().erase(this->getReservations().begin() + index);
+		this->_IDReservations.erase(this->getReservations().begin() + index);
 	}
 
 	void Client::replaceReservation(int index, int idR) 
 	{
-		this->getReservations()[index] = idR;
+		this->_IDReservations[index] = idR;
 	}
 
 	ostream& operator<<(ostream& os, const Client& c)
 	{
-		os << c.getNom() + " " + c.getPrenom();
+		os << to_string(c.getID()) + " " + c.getNom() + " " + c.getPrenom();
 
 		return os;
 	}

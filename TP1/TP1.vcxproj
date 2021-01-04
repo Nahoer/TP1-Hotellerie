@@ -154,6 +154,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Chambre.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Serialization.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Hotel.cpp" />
     <ClCompile Include="Reservation.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Chambre.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="Serialization.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Hotel.h" />
     <ClInclude Include="Reservation.h" />

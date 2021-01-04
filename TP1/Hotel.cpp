@@ -59,6 +59,26 @@ namespace hotellerie {
 
 	}
 
+	Chambre Hotel::getChambreByID(int id) const
+	{
+		int i = 0;
+		Chambre c = Chambre();
+		bool found = false;
+		while (i < this->_listeChambres.size() && found == false)
+		{
+			if (this->getChambres().at(i).getID() == id)
+			{
+				c = this->getChambres().at(i);
+				found = true;
+			}
+
+			i++;
+		}
+
+		return c;
+	}
+
+
 	void Hotel::addChambre(Chambre c)
 	{
 		this->_listeChambres.push_back(c);

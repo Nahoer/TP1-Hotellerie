@@ -1,13 +1,12 @@
 // TP1.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 #include "Date.h"
-
+#include "Serialization.h"
 #include <iostream>
 #include <fstream>
-#include "hotel.h";
-#include "Client.h";
-#include "Reservation.h";
-#include "App.h";
+#include "hotel.h"
+#include "Client.h"
+#include "Reservation.h"
 
 
 using namespace hotellerie;
@@ -71,11 +70,28 @@ int main()
 	cout << endl;
 	cout << endl;
 	*/
-	App hotellerie = App();
-	hotellerie.addHotel("La cloche", "Dijon");
-	hotellerie.addClient("Tillman", "Filomena");
-	hotellerie.addClient("Troy", "Will Jr");
-	hotellerie.addClient("Stark", "Crystel");
+
+
+	Serialization s = Serialization();
+	App app = s.read();
+	for (int i = 0; i < app.getClients().size(); i++)
+	{
+		cout << app.getClients()[i] << endl;
+	}
+
+
+	
+	for (int i = 0; i < app.getHotels().size(); i++)
+	{
+		cout << app.getHotels()[i] << endl;
+	}
+	
+	for (int i = 0; i < app.getReservations().size(); i++)
+	{
+		cout << app.getReservations()[i].toString() << endl;
+	}
+
+	
 
 
 

@@ -25,9 +25,11 @@ namespace hotellerie {
 		void removeChambre(Chambre c);
 		void removeChambre(int index);
 		vector<Chambre> getChambres() const;
+		Chambre getChambreByID(int id) const;
 		vector<Chambre> getChambresDispo() const;
 		Chambre getChambre(int index) const;
 		void modifyChambre(int index, Chambre c);
+
 
 			
 

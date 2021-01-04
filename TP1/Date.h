@@ -5,13 +5,13 @@ using namespace std;
 
 class Date {
 public:
-	Date(int year, int month, int day);
+	Date(int day, int month, int year);
 	Date() = default;
 	~Date();
 	int year() const;
 	int month() const;
 	int day() const;
-	bool checkDate(int year, int month, int day);
+	bool checkDate(int day, int month, int year);
 	void setYear(int year);
 	void setMonth(int month);
 	void setDay(int day);
