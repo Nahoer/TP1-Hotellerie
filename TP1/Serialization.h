@@ -4,12 +4,12 @@ class Serialization
 {
 public:
 	Serialization(string filesPath="");
-	App read();
-	void write(App app);
+	void read(App &app);
+	
 private:
-	App readHotels(App app);
-	App readClients(App app);
-	App readReservations(App app);
+	void readHotels(App &app);
+	void readClients(App &app);
+	void readReservations(App& app);
 	string _path;
 
 };

@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="Appcontroler.cpp" />
     <ClCompile Include="Chambre.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Serialization.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Chambre.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="Appcontroler.h" />
     <ClInclude Include="Serialization.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Hotel.h" />

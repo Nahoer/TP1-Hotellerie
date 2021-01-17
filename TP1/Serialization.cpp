@@ -36,20 +36,15 @@ std::vector<std::string> split(const std::string& s, const std::string& delimite
 Serialization::Serialization(string filesPath) : _path(filesPath)
 {
 }
-App Serialization::read()
+void Serialization::read(App &app)
 {
-	App app = App();
-	app = this->readClients(app);
-	app = this->readHotels(app);
-	app = this->readReservations(app);
-
-	return app;
-}
-void Serialization::write(App app)
-{
+	this->readClients(app);
+	this->readHotels(app);
+	this->readReservations(app);
 
 }
-App Serialization::readHotels(App app)
+
+void Serialization::readHotels(App &app)
 {
 	string line;
 	vector<Chambre> chambres = vector<Chambre>();
@@ -85,9 +80,8 @@ App Serialization::readHotels(App app)
 		app.addHotel(h);
 		
 	}
-	return app;
 }
-App Serialization::readClients(App app)
+void Serialization::readClients(App &app)
 {
 	string line;
 	ifstream file(_path+"clients.txt");
@@ -107,9 +101,8 @@ App Serialization::readClients(App app)
 
 		
 	}
-	return app;
 }
-App Serialization::readReservations(App app)
+void Serialization::readReservations(App &app)
 {
 	string line;
 	ifstream file(_path + "reservations.txt");
@@ -124,8 +117,8 @@ App Serialization::readReservations(App app)
 		app.addReservation(r);
 	}
 
-	return app;
 }
+
 
 
 

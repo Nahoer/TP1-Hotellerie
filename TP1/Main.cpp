@@ -1,7 +1,7 @@
 // TP1.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 #include "Date.h"
-#include "Serialization.h"
+#include "Appcontroler.h"
 #include <iostream>
 #include <fstream>
 #include "hotel.h"
@@ -72,23 +72,22 @@ int main()
 	*/
 
 
-	Serialization s = Serialization();
-	App app = s.read();
-	for (int i = 0; i < app.getClients().size(); i++)
+	Appcontroler controler = Appcontroler();
+	for (int i = 0; i < controler.getApp().getClients().size(); i++)
 	{
-		cout << app.getClients()[i] << endl;
+		cout << controler.getApp().getClients()[i] << endl;
 	}
 
 
 	
-	for (int i = 0; i < app.getHotels().size(); i++)
+	for (int i = 0; i < controler.getApp().getHotels().size(); i++)
 	{
-		cout << app.getHotels()[i] << endl;
+		cout << controler.getApp().getHotels()[i] << endl;
 	}
 	
-	for (int i = 0; i < app.getReservations().size(); i++)
+	for (int i = 0; i < controler.getApp().getReservations().size(); i++)
 	{
-		cout << app.getReservations()[i].toString() << endl;
+		cout << controler.getApp().getReservations()[i].toString() << endl;
 	}
 
 	
