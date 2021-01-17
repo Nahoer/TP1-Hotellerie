@@ -5,7 +5,7 @@ class Serialization
 public:
 	Serialization(string filesPath="");
 	void read(App &app);
-	
+	void addHotel(Hotel hotel);
 private:
 	void readHotels(App &app);
 	void readClients(App &app);

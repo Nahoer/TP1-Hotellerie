@@ -73,23 +73,25 @@ int main()
 
 
 	Appcontroler controler = Appcontroler();
+
+	/*
 	for (int i = 0; i < controler.getApp().getClients().size(); i++)
 	{
 		cout << controler.getApp().getClients()[i] << endl;
 	}
-
+	*/
 
 	
 	for (int i = 0; i < controler.getApp().getHotels().size(); i++)
 	{
 		cout << controler.getApp().getHotels()[i] << endl;
 	}
-	
+	/*
 	for (int i = 0; i < controler.getApp().getReservations().size(); i++)
 	{
 		cout << controler.getApp().getReservations()[i].toString() << endl;
 	}
-
+	*/
 	
 
 

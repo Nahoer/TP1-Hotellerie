@@ -119,6 +119,36 @@ void Serialization::readReservations(App &app)
 
 }
 
+void Serialization::addHotel(Hotel hotel)
+{
+	ofstream stream = ofstream(_path + "hotels.txt");
+	/*if (stream.is_open())
+	{
+		stream.seekg(-1, ios_base::end);
+		bool keepLooping = true;
+		while (keepLooping) {
+			char ch;
+			stream.get(ch);                           
+
+			if ((int)stream.tellg() <= 1) {             
+				stream.seekg(0);                       
+				keepLooping = false;                
+			}
+			else if (ch == '\n') {                  
+				keepLooping = false;                
+			}
+			else {                                  
+				stream.seekg(-2, ios_base::cur);        
+			}
+		}
+
+		string lastLine;
+		getline(stream, lastLine);*/
+		
+	stream << to_string(hotel.getID()) + " " + hotel.getNom() + " " + hotel.getVille() + "\n";
+
+
+}
 
 
 
